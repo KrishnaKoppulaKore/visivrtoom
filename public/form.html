@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>User Form</title>
+</head>
+<body>
+    <h2>User Form</h2>
+
+    <form method="POST" action="/submit-form">
+        <input type="hidden" id="request_id" name="request_id" />
+
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Age:</label><br>
+        <input type="number" name="age" required><br><br>
+
+        <label>Problem:</label><br>
+        <textarea name="problem" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Get request_id from URL
+        const params = new URLSearchParams(window.location.search);
+        const requestId = params.get("request_id");
+        document.getElementById("request_id").value = requestId;
+    </script>
+</body>
+</html> -->
+<form action="/submit-form" method="POST" enctype="multipart/form-data">
+    
+    <input type="hidden" name="request_id" id="request_id">
+
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="number" name="age" placeholder="Age" required />
+    <textarea name="problem" placeholder="Problem"></textarea>
+
+    <br /><br />
+
+    <input type="file" name="image" accept="image/*" required />
+
+    <br /><br />
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("request_id").value =
+        params.get("request_id");
+</script>
